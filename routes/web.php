@@ -14,9 +14,7 @@ use App\Http\Controllers\EntrepriseController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [EntrepriseController::class,'index'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
