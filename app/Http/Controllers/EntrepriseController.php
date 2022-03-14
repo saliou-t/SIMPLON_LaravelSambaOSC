@@ -8,9 +8,11 @@ use Illuminate\Http\Request;
 
 class EntrepriseController extends Controller
 {
+
+
     public function index(){
         return view('entreprise.index', [
-            'entreprises' => Entreprise::all()
+            'entreprises' => Entreprise::with('quartier')->get()
         ]);
     }
 
@@ -31,7 +33,6 @@ class EntrepriseController extends Controller
 
         Entreprise::create($inputsData);
        
-        //on fait une redirection
         return redirect()->route('entreprise.index');
     }
 
@@ -47,8 +48,17 @@ class EntrepriseController extends Controller
         return redirect()->route('entreprise.index');
     }
 
-
-    public function edite($id){
-        
+    public function edit(Entreprise $entreprise){
+        dd($entreprise);
+        // dd($entreprise->nom);
+        // if ($entreprise) {
+        //     return view('entreprise.edit',[
+        //         'entreprise' => $entreprise,
+        //         'quartiers' =>Quartier::all()
+        //     ]);
+        // }
+        // return view('entreprise.edit', [
+        //     'entreprise' => $entreprise
+        // ]);
     }
 }

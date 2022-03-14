@@ -16,6 +16,7 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse" id="navbarColor01">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item">
@@ -24,10 +25,10 @@
                         </a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="/entreprise/create">Ajouter</a>
+                            <a class="nav-link" href="/entreprise/create">Ajouter</a>
                         </li>
                         <li class="nav-item">
-                        <a class="nav-link" href="#">Ajouter Ete</a>
+                            <a class="nav-link" href="#">Ajouter Ete</a>
                         </li>
                     </ul>
                 </div>
@@ -39,18 +40,18 @@
                 @csrf
                 <div class="form-row mt-3">
                     <div class="col">
-                        <input type="text" name="nom" class="form-control" placeholder="Nom de l'enterprise">
+                        <input type="text" name="nom" class="form-control" value="{{$entreprise->nom}}" placeholder="Nom de l'enterprise">
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col">
                         <div class="form-group">
-                            <input type="text" name="siege" class="form-control" placeholder="Siège">
+                            <input type="text" name="siege" class="form-control" value="{{$entreprise->nom}}" placeholder="Siège">
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
-                            <input type="text" name="registre" class="form-control" placeholder="Registre">
+                            <input type="text" name="registre" class="form-control" value="{{$entreprise->registre}}" placeholder="Registre">
                         </div>
                     </div>
                     <div class="col">
@@ -58,7 +59,7 @@
                             <select id="selection" class="form-control" name="quartier_id">
                                 <option value="">Selectionner le quartier</option>
                                     @foreach ($quartiers as $quartier)
-                                        <option value= {{ $quartier->id}}> {{ $quartier->nom }} </option>
+                                        <option value= {{ $quartier->quartier_id}}> {{ $quartier->nom }} </option>
                                     @endforeach
                             </select>
                         </div>
@@ -67,21 +68,21 @@
                 <div class="row mt-3">
                     <div class="col">
                         <div class="form-group">
-                            <input type="text" name="ninea" class="form-control" placeholder="Ninea"> 
+                            <input type="text" name="ninea" class="form-control" value="{{$entreprise->ninea}}" placeholder="Ninea"> 
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
-                            <input type="tel" name="telephone" class="form-control" placeholder="Téléphone">
+                            <input type="tel" name="telephone" class="form-control" value="{{$entreprise->telephone}}" placeholder="Téléphone">
                         </div>
                     </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-4">
-                        <input type="date" name="dateCreation" class="form-control" placeholder="Date de création">
+                        <input type="date" name="dateCreation" value="{{$entreprise->dateCreation}}" class="form-control" placeholder="Date de création">
                     </div>
                     <div class="col">
-                        <input type="text" name="siteWeb" class="form-control" placeholder="Page Web">
+                        <input type="text" name="siteWeb" class="form-control" value="{{$entreprise->site }}" placeholder="Page Web">
                     </div>
                     </div>
                     <div class="row mt-3">
@@ -89,7 +90,7 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="dispositifFormation" id="radio1" value="dispositif">
+                                        <input class="form-check-input" type="checkbox"  value="{{$entreprise->site }}" name="dispositifFormation" id="radio1" value="dispositif">
                                         <label class="form-check-label" for="radio1">Dispositif</label>
                                     </div>
                                     <div class="form-check form-check-inline">
@@ -114,12 +115,11 @@
                     </div>
                     <div class="row mt-3">
                         <div class="col">
-                            <button class="btn btn-info " type="submit">Enregistrer</button>
+                            <button class="btn btn-info " type="submit">Appliquer les modifications</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>       
-        
     </body>
 </html>
