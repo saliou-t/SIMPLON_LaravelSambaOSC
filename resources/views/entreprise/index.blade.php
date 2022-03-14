@@ -65,7 +65,7 @@
                             <td>{{ $entreprise->nom }}</td>
                             <td>{{ $entreprise->siege }}</td>
                             <td>{{ $entreprise->ninea }}</td>
-                            <td>{{ $entreprise->quartier_id }}
+                            <td>{{ $entreprise->quatier->nom }}
                             <td>{{ $entreprise->siteWeb }}</td>
                             <td>
                                 <a href="/entreprise/delete/{{ $entreprise->id }}">

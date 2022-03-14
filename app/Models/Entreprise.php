@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\Models\Quartier;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Entreprise extends Model
 {
@@ -11,4 +12,7 @@ class Entreprise extends Model
 
     protected $guarded = [];  
 
+    public function quartier (){
+        return $this->belongsTo(Quartier::class);
+    }
 }

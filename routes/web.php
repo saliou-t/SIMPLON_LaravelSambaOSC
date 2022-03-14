@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\Pays;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EntrepriseController;
 
@@ -16,15 +15,21 @@ use App\Http\Controllers\EntrepriseController;
 */
 
 Route::get('/', function () {
-
-    $pays = Pays::all();
-    return view('welcome', [
-        'pays' => $pays
-    ]);
+    return view('welcome');
 });
 
-Route::get('/entreprise', [EntrepriseController::class,'index'])->name('entreprise.index');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('dashboard');
 
-Route::get('/entreprise/create', [EntrepriseController::class,'create'])->name('entreprise.create');
-Route::post('/entreprise/store', [EntrepriseController::class,'store'])->name('entreprise.store');
-Route::get('/entreprise/delete/{id}', [EntrepriseController::class,'delete'])->name('entreprise.delete');
+
+
+Route::get('/entreprise', [EntrepriseController::class,'index'])->name('entreprise.index');
+Route::middleware(['auth'])->group(function () {
+
+    Route::get('/entreprise/create', [EntrepriseController::class,'create'])->name('entreprise.create');
+    Route::post('/entreprise/store', [EntrepriseController::class,'store'])->name('entreprise.store');
+    Route::get('/entreprise/delete/{id}', [EntrepriseController::class,'delete'])->name('entreprise.delete');
+});
+
+require __DIR__.'/auth.php';

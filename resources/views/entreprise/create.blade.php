@@ -88,33 +88,29 @@
             </div>
             </div>
             <div class="row mt-3">
-                <div class="col">
-                    <textarea class="form-control" id="contrat"  rows="3" placeholder="Contrat formel"></textarea>
-                </div>
+                
                 <div class="col">
                     <div class="row">
-                        <div class="col">
-
-                        </div>
-                    <div class="col">
+                        
+                    <div class="col d-flex align-content-lg-around">
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="dispositifFormation" id="radio1" value="dispositif">
+                            <input class="form-check-input" type="checkbox" name="dispositifFormation" id="radio1" value="dispositif">
                             <label class="form-check-label" for="radio1">Dispositif</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="cotisationSociale" id="radio2" value="option2">
+                            <input class="form-check-input" type="checkbox" name="cotisationSociale" id="radio2" value="option2">
                             <label class="form-check-label" for="radio2">Cotisation</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="contrat" id="radio3" value="option2">
+                            <input class="form-check-input" type="checkbox" name="contrat" id="radio3" value="option2">
                             <label class="form-check-label" for="radio3">Contrat formel</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="organigramme" id="radio4" value="option2">
+                            <input class="form-check-input" type="checkbox" name="organigramme" id="radio4" value="option2">
                             <label class="form-check-label" for="radio4">Organigramme</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input class="form-check-input" type="radio" name="contrat" id="radio5" value="option2">
+                            <input class="form-check-input" type="checkbox" name="contrat" id="radio5" value="option2">
                             <label class="form-check-label" for="radio5">Contrat</label>
                         </div>
                     </div>
