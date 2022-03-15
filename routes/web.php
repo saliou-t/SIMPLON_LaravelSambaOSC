@@ -22,12 +22,19 @@ Route::get('/dashboard', function () {
 
 
 Route::get('/entreprise', [EntrepriseController::class,'index'])->name('entreprise.index');
+
 Route::middleware(['auth'])->group(function () {
 
     Route::view('profile', 'profile')->name('profile');
     Route::get('/entreprise/create', [EntrepriseController::class,'create'])->name('entreprise.create');
     Route::post('/entreprise/store', [EntrepriseController::class,'store'])->name('entreprise.store');
     Route::get('/entreprise/delete/{id}', [EntrepriseController::class,'delete'])->name('entreprise.delete');
+});
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::resource('roles', 'RoleController');
+    Route::resource('users', 'UserController');
+    Route::resource('blogs', 'BlogController');
 });
 
 require __DIR__.'/auth.php';
