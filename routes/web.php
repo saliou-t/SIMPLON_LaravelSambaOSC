@@ -21,10 +21,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 
-
 Route::get('/entreprise', [EntrepriseController::class,'index'])->name('entreprise.index');
 Route::middleware(['auth'])->group(function () {
 
+    Route::view('profile', 'profile')->name('profile');
     Route::get('/entreprise/create', [EntrepriseController::class,'create'])->name('entreprise.create');
     Route::post('/entreprise/store', [EntrepriseController::class,'store'])->name('entreprise.store');
     Route::get('/entreprise/delete/{id}', [EntrepriseController::class,'delete'])->name('entreprise.delete');
