@@ -41,7 +41,7 @@
         </nav>
         <div class="container">
             <h2>Formulaire d'edition d'entreprise</h2>
-                <form action="/entreprise/store" method="POST">
+                <form action="{{ route('entreprise.update', ['id' => $entreprise->id])}}" method="POST">
                 @csrf
                 <div class="form-row mt-3">
                     <div class="col">
@@ -51,7 +51,7 @@
                 <div class="row mt-3">
                     <div class="col">
                         <div class="form-group">
-                            <input type="text" name="siege" class="form-control" value="{{$entreprise->nom}}" placeholder="Siège">
+                            <input type="text" name="siege" class="form-control" value="{{$entreprise->siege}}" placeholder="Siège">
                         </div>
                     </div>
                     <div class="col">
@@ -62,9 +62,12 @@
                     <div class="col">
                         <div class="form-group">
                             <select id="selection" class="form-control" name="quartier_id">
-                                <option value="">Selectionner le quartier</option>
+                                <option value={{$entreprise->quartier_id}}>{{$entreprise->quartier->nom}}</option>
                                     @foreach ($quartiers as $quartier)
-                                        <option value= {{ $quartier->quartier_id}}> {{ $quartier->nom }} </option>
+                                        @if ($quartier->id == $entreprise->quartier_id)
+                                            @continue
+                                        @endif
+                                        <option value= {{ $quartier->id}}> {{ $quartier->nom }} </option>
                                     @endforeach
                             </select>
                         </div>
@@ -73,7 +76,7 @@
                 <div class="row mt-3">
                     <div class="col">
                         <div class="form-group">
-                            <input type="text" name="ninea" class="form-control" value="{{$entreprise->ninea}}" placeholder="Ninea"> 
+                            <input type="text" name="ninea" class="form-control" value="{{$entreprise->ninea}}" placeholder="Ninea">
                         </div>
                     </div>
                     <div class="col">
@@ -87,7 +90,7 @@
                         <input type="date" name="dateCreation" value="{{$entreprise->dateCreation}}" class="form-control" placeholder="Date de création">
                     </div>
                     <div class="col">
-                        <input type="text" name="siteWeb" class="form-control" value="{{$entreprise->site }}" placeholder="Page Web">
+                        <input type="text" name="siteWeb" class="form-control" value="{{$entreprise->siteWeb }}" placeholder="Page Web">
                     </div>
                     </div>
                     <div class="row mt-3">
@@ -125,6 +128,6 @@
                     </div>
                 </form>
             </div>
-        </div>       
+        </div>
     </body>
 </html>

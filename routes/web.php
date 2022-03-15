@@ -27,8 +27,10 @@ Route::middleware(['auth'])->group(function () {
 
     Route::view('profile', 'profile')->name('profile');
     Route::get('/entreprise/create', [EntrepriseController::class,'create'])->name('entreprise.create');
+    Route::get('/entreprise/edit/{entreprise}', [EntrepriseController::class,'edit'])->name('entreprise.edit');
     Route::post('/entreprise/store', [EntrepriseController::class,'store'])->name('entreprise.store');
     Route::get('/entreprise/delete/{id}', [EntrepriseController::class,'delete'])->name('entreprise.delete');
+    Route::post('/entreprise/update/{id}', [EntrepriseController::class,'update'])->name('entreprise.update');
 });
 
 Route::group(['middleware' => ['auth']], function() {
